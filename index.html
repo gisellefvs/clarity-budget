@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Get Clarity Budget</title>
+<meta name="description" content="Sales page for Clarity Budget — the no-math money planner and method for easily-distracted brains.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  /* Editorial sales page for the Clarity Budget collection: one narrative column, calm sage/teal system, phone mockup hero, sticky mobile buy bar. */
+  :root{
+    --bg:#f2f5f3;
+    --paper:#ffffff;
+    --paper-2:#eaefec;
+    --sand:#f6f1e9;           /* warm section tint, used sparingly */
+    --ink:#1e2a27;
+    --ink-soft:#485754;
+    --ink-faint:#8593901; /* fallback fixed below */
+    --ink-faint:#87938f;
+    --line:#dfe5e2;
+    --accent:#0f8a72;
+    --accent-deep:#0ب; /* replaced below */
+    --accent-deep:#0a6c59;
+    --accent-soft:#d7ede6;
+    --gold:#b5872b;
+    --good:#2f9e6f;
+    --radius:16px;
+    --shadow-s:0 1px 2px rgba(30,42,39,.05),0 4px 14px rgba(30,42,39,.05);
+    --shadow-l:0 20px 50px rgba(30,42,39,.14);
+    --font-display:"Fraunces",Georgia,serif;
+    --font-body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#101615; --paper:#18211f; --paper-2:#202b28; --sand:#1d241f; --ink:#e9efec; --ink-soft:#aebcb8;
+    --ink-faint:#71807c; --line:#2a3633; --accent:#37c2a2; --accent-deep:#5fd3b7; --accent-soft:#123b33; --gold:#e0a94b; --good:#43c088;
+    color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#101615; --paper:#18211f; --paper-2:#202b28; --sand:#1d241f; --ink:#e9efec; --ink-soft:#aebcb8;
+    --ink-faint:#71807c; --line:#2a3633; --accent:#37c2a2; --accent-deep:#5fd3b7; --accent-soft:#123b33; --gold:#e0a94b; --good:#43c088;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;-webkit-font-smoothing:antialiased;font-size:17px;overflow-x:hidden}
+  ::selection{background:var(--accent-soft)}
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;text-wrap:balance;margin:0;letter-spacing:-.015em;line-height:1.12}
+  p{margin:0}
+  .num{font-variant-numeric:tabular-nums}
+
+  .wrap{max-width:1060px;margin:0 auto;padding-inline:20px}
+  .narrow{max-width:640px;margin-inline:auto}
+  section{padding-block:clamp(48px,8vw,84px)}
+  .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent);font-weight:700}
+
+  /* top bar */
+  header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top-in{max-width:1060px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px}
+  .logo{font-family:var(--font-display);font-weight:600;font-size:1.05rem;margin-right:auto}
+  .logo small{display:block;font-family:var(--font-body);font-weight:500;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:15px 26px;font-family:var(--font-body);font-weight:700;font-size:1rem;cursor:pointer;background:var(--accent);color:#fff;text-decoration:none;transition:filter .15s,transform .05s;box-shadow:0 6px 18px rgba(15,138,114,.28)}
+  :root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#08130f}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#08130f}}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(1px)}
+  .btn.small{padding:10px 18px;font-size:.9rem;box-shadow:none}
+  .btn .sub{font-weight:500;opacity:.85;font-size:.78rem}
+  .btn.block{display:flex;width:100%}
+  a{color:var(--accent)}
+
+  /* hero */
+  .hero{display:grid;gap:40px;align-items:center}
+  @media(min-width:860px){.hero{grid-template-columns:1.05fr .95fr}}
+  .hero h1{font-size:clamp(2.3rem,6.2vw,3.7rem)}
+  .hero .dek{font-size:1.15rem;color:var(--ink-soft);margin-top:20px;max-width:36ch}
+  .hero .cta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .microtrust{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.82rem;color:var(--ink-soft)}
+  .microtrust span{display:inline-flex;align-items:center;gap:7px}
+  .check{color:var(--accent);font-weight:800}
+
+  /* phone mockup */
+  .device{justify-self:center;width:min(300px,84vw);aspect-ratio:9/18.5;background:var(--paper);border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow-l);padding:12px;position:relative}
+  .device::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:80px;height:6px;border-radius:99px;background:var(--paper-2)}
+  .screen{height:100%;background:var(--bg);border-radius:24px;padding:20px 14px;overflow:hidden;display:flex;flex-direction:column;gap:11px}
+  .m-head{display:flex;justify-content:space-between;align-items:baseline;padding-top:6px}
+  .m-title{font-family:var(--font-display);font-weight:600;font-size:.95rem}
+  .m-mon{font-size:.66rem;color:var(--ink-faint)}
+  .m-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .m-kpi{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 10px}
+  .m-kpi .l{font-size:.55rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700}
+  .m-kpi .v{font-family:var(--font-display);font-weight:600;font-size:1.05rem}
+  .m-kpi .v.good{color:var(--good)}
+  .m-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px}
+  .m-card .ct{font-size:.62rem;color:var(--ink-faint);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .m-bar{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+  .m-bar .bn{font-size:.6rem;color:var(--ink-soft);width:52px;flex:0 0 auto}
+  .m-track{height:6px;background:var(--paper-2);border-radius:99px;flex:1;overflow:hidden}
+  .m-fill{height:100%;border-radius:99px}
+  .donut-mini{display:flex;gap:10px;align-items:center}
+
+  /* generic section bits */
+  .sec-head{max-width:34ch}
+  .sec-head h2{font-size:clamp(1.7rem,4.2vw,2.4rem)}
+  .sec-head .eyebrow{margin-bottom:14px;display:block}
+  .lead{font-size:1.1rem;color:var(--ink-soft);margin-top:16px}
+
+  .tint{background:var(--sand)}
+  :root[data-theme="dark"] .tint,:root:not([data-theme="light"]) .tint{background:var(--paper)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tint{background:var(--paper)}}
+
+  /* pain list */
+  .pain{display:grid;gap:14px;margin-top:28px}
+  @media(min-width:680px){.pain{grid-template-columns:1fr 1fr}}
+  .pain .p{display:flex;gap:12px;align-items:flex-start;font-size:1rem;color:var(--ink-soft)}
+  .pain .p .x{flex:0 0 auto;width:24px;height:24px;border-radius:7px;background:color-mix(in srgb,var(--gold) 18%,transparent);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:.8rem;margin-top:2px}
+
+  /* steps */
+  .steps{display:grid;gap:18px;margin-top:34px;counter-reset:s}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-s)}
+  .step .sn{counter-increment:s;font-family:var(--font-display);font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:10px}
+  .step .sn::before{content:counter(s,decimal-leading-zero)}
+  .step h3{font-size:1.15rem;margin-bottom:6px}
+  .step p{color:var(--ink-soft);font-size:.95rem}
+
+  /* what's inside */
+  .inside{display:grid;gap:18px;margin-top:34px}
+  @media(min-width:760px){.inside{grid-template-columns:1fr 1fr}}
+  .feat{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-s);display:flex;flex-direction:column;gap:10px}
+  .feat.wide{grid-column:1/-1}
+  .feat .tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+  .feat h3{font-size:1.3rem}
+  .feat p{color:var(--ink-soft);font-size:.97rem}
+  .feat ul{margin:4px 0 0;padding-left:0;list-style:none;display:grid;gap:8px}
+  .feat li{display:flex;gap:9px;align-items:flex-start;font-size:.95rem;color:var(--ink-soft)}
+  .feat li .check{margin-top:1px}
+
+  /* testimonials */
+  .tgrid{display:grid;gap:16px;margin-top:32px}
+  @media(min-width:720px){.tgrid{grid-template-columns:repeat(3,1fr)}}
+  .quote{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-s);position:relative;display:flex;flex-direction:column;gap:14px}
+  .quote .sample{position:absolute;top:12px;right:12px;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-2);padding:3px 7px;border-radius:6px}
+  .quote p{font-size:.97rem;line-height:1.6}
+  .quote .who{display:flex;align-items:center;gap:10px;margin-top:auto}
+  .quote .av{width:34px;height:34px;border-radius:99px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.85rem;flex:0 0 auto}
+  .quote .who .nm{font-weight:600;font-size:.88rem}
+  .quote .who .rl{font-size:.76rem;color:var(--ink-faint)}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:.85rem}
+
+  /* offer */
+  .offer{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-l);overflow:hidden;max-width:520px;margin-inline:auto}
+  .offer .top-strip{background:var(--accent);color:#fff;text-align:center;padding:10px;font-weight:700;font-size:.82rem;letter-spacing:.04em}
+  :root[data-theme="dark"] .offer .top-strip,:root:not([data-theme="light"]) .offer .top-strip{color:#08130f}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .offer .top-strip{color:#08130f}}
+  .offer .body{padding:28px 24px}
+  .stack{display:grid;gap:10px;margin:6px 0 20px}
+  .stack .it{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  .stack .it:last-child{border-bottom:0}
+  .stack .it .nm{color:var(--ink);display:flex;gap:8px;align-items:baseline}
+  .stack .it .nm .check{color:var(--accent)}
+  .stack .it .pr{color:var(--ink-faint);white-space:nowrap}
+  .stack .it .pr s{opacity:.7}
+  .stack .it .pr .free{color:var(--good);font-weight:700}
+  .price-row{display:flex;align-items:baseline;gap:12px;justify-content:center;margin:6px 0 4px}
+  .price-row .was{color:var(--ink-faint);text-decoration:line-through;font-size:1.1rem}
+  .price-row .now{font-family:var(--font-display);font-weight:600;font-size:2.8rem;letter-spacing:-.02em}
+  .price-note{text-align:center;color:var(--ink-faint);font-size:.8rem;margin-bottom:18px}
+
+  /* guarantee */
+  .guarantee{display:flex;gap:18px;align-items:center;background:var(--accent-soft);border-radius:var(--radius);padding:22px 24px;max-width:640px;margin:32px auto 0}
+  .guarantee .seal{flex:0 0 auto;width:58px;height:58px;border-radius:99px;border:2px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:.72rem;text-align:center;line-height:1.05}
+  .guarantee p{font-size:.95rem;color:var(--ink)}
+  .guarantee strong{color:var(--accent-deep)}
+
+  /* faq */
+  .faq{max-width:680px;margin:32px auto 0;display:grid;gap:0}
+  details{border-top:1px solid var(--line);padding:16px 2px}
+  details:last-child{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary .pm{color:var(--accent);font-size:1.3rem;font-weight:400;line-height:1;transition:transform .2s}
+  details[open] summary .pm{transform:rotate(45deg)}
+  details p{margin-top:12px;color:var(--ink-soft);font-size:.96rem}
+
+  /* founder */
+  .founder{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,40px);max-width:720px;margin-inline:auto;box-shadow:var(--shadow-s)}
+  .founder .who{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .founder .av{width:52px;height:52px;border-radius:99px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:1.4rem}
+  .founder .nm{font-family:var(--font-display);font-weight:600;font-size:1.1rem}
+  .founder .rl{font-size:.82rem;color:var(--ink-faint)}
+  .founder p{color:var(--ink-soft);margin-bottom:14px}
+  .founder .sig{font-family:var(--font-display);font-style:italic;font-size:1.2rem;color:var(--ink)}
+
+  /* final cta */
+  .final{text-align:center}
+  .final h2{font-size:clamp(1.8rem,4.6vw,2.6rem);max-width:18ch;margin-inline:auto}
+  .final p{color:var(--ink-soft);margin:16px auto 28px;max-width:44ch}
+
+  footer{border-top:1px solid var(--line);padding-block:32px 120px}
+  footer .disc{color:var(--ink-faint);font-size:.78rem;line-height:1.6;max-width:70ch}
+  footer .fbrand{font-family:var(--font-display);font-weight:600;margin-bottom:12px}
+
+  /* sticky mobile buy bar */
+  .buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px}
+  .buybar .bp{margin-right:auto;line-height:1.1}
+  .buybar .bp .n{font-family:var(--font-display);font-weight:600;font-size:1.15rem}
+  .buybar .bp .w{font-size:.72rem;color:var(--ink-faint);text-decoration:line-through}
+  @media(min-width:860px){.buybar{display:none}}
+  .desktop-only-space{display:none}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo">Clarity Budget<small>by Fernanda</small></div>
+    <a href="#offer" class="btn small">Get Clarity Budget</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="wrap">
+  <div class="hero">
+    <div>
+      <span class="eyebrow">For brains that quit every other budget</span>
+      <h1 style="margin-top:16px">Finally, a budget that doesn't quit on you.</h1>
+      <p class="dek">A no-math money planner and a calm, practical method — built for busy, easily-distracted minds. Log a purchase in ten seconds, always know where you stand, and pick it back up any time you fall off. No catching up. No guilt.</p>
+      <div class="cta-row">
+        <a href="#offer" class="btn">See what's inside <span class="sub">→</span></a>
+      </div>
+      <div class="microtrust">
+        <span><span class="check">✓</span> Instant download</span>
+        <span><span class="check">✓</span> Works on any device</span>
+        <span><span class="check">✓</span> Pay once, keep forever</span>
+        <span><span class="check">✓</span> 14-day guarantee</span>
+      </div>
+    </div>
+
+    <!-- product mockup -->
+    <div class="device" aria-hidden="true">
+      <div class="screen">
+        <div class="m-head"><span class="m-title">This month</span><span class="m-mon">September</span></div>
+        <div class="m-kpis">
+          <div class="m-kpi"><div class="l">Money in</div><div class="v num">$3,650</div></div>
+          <div class="m-kpi"><div class="l">Spent</div><div class="v num">$1,644</div></div>
+          <div class="m-kpi"><div class="l">Left</div><div class="v num good">$2,006</div></div>
+          <div class="m-kpi"><div class="l">Saved</div><div class="v num">$1,550</div></div>
+        </div>
+        <div class="m-card">
+          <div class="ct">Where it's going</div>
+          <div class="donut-mini">
+            <svg width="76" height="76" viewBox="0 0 76 76">
+              <circle cx="38" cy="38" r="27" fill="none" stroke="var(--paper-2)" stroke-width="11"></circle>
+              <circle cx="38" cy="38" r="27" fill="none" stroke="var(--accent)" stroke-width="11" stroke-dasharray="76 94" transform="rotate(-90 38 38)"></circle>
+              <circle cx="38" cy="38" r="27" fill="none" stroke="#3f7dc0" stroke-width="11" stroke-dasharray="34 136" stroke-dashoffset="-76" transform="rotate(-90 38 38)"></circle>
+              <circle cx="38" cy="38" r="27" fill="none" stroke="var(--gold)" stroke-width="11" stroke-dasharray="24 146" stroke-dashoffset="-110" transform="rotate(-90 38 38)"></circle>
+            </svg>
+            <div style="display:grid;gap:5px;font-size:.62rem;color:var(--ink-soft)">
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--accent);margin-right:5px"></span>Housing</span>
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#3f7dc0;margin-right:5px"></span>Groceries</span>
+              <span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--gold);margin-right:5px"></span>Fun</span>
+            </div>
+          </div>
+        </div>
+        <div class="m-card">
+          <div class="ct">Category budgets</div>
+          <div class="m-bar"><span class="bn">Groceries</span><span class="m-track"><span class="m-fill" style="width:64%;background:var(--good)"></span></span></div>
+          <div class="m-bar"><span class="bn">Eating out</span><span class="m-track"><span class="m-fill" style="width:88%;background:var(--gold)"></span></span></div>
+          <div class="m-bar"><span class="bn">Transport</span><span class="m-track"><span class="m-fill" style="width:40%;background:var(--good)"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="tint">
+  <div class="wrap narrow">
+    <div class="sec-head" style="max-width:none">
+      <span class="eyebrow">Sound familiar?</span>
+      <h2 style="margin-top:14px">You've started a budget before. Maybe a few times.</h2>
+      <p class="lead">There's the notebook with a perfect first page and nothing after it. The app you linked your bank to once and never opened again. The spreadsheet with twelve tabs that made you feel worse, not better.</p>
+    </div>
+    <div class="pain">
+      <div class="p"><span class="x">✕</span><span>Budgeting apps that overwhelm you the second you open them.</span></div>
+      <div class="p"><span class="x">✕</span><span>Miss a few days and the whole thing feels ruined, so you stop.</span></div>
+      <div class="p"><span class="x">✕</span><span>Doing mental math at the register and giving up halfway.</span></div>
+      <div class="p"><span class="x">✕</span><span>Monthly subscriptions for tools that were supposed to save you money.</span></div>
+    </div>
+    <p style="margin-top:28px;font-family:var(--font-display);font-size:1.3rem;line-height:1.4">None of that was a discipline problem. It was a tools problem. You were handed systems built for a different kind of brain than yours.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">What you get</span>
+    <h2 style="margin-top:14px">A tool and a method that work together.</h2>
+    <p class="lead">Not another app to abandon. A calm system you can actually keep.</p>
+  </div>
+  <div class="inside">
+    <div class="feat">
+      <span class="tag">The planner</span>
+      <h3>Clarity Budget</h3>
+      <p>An interactive money planner that does every calculation for you. Open it, tap in what came in and what went out, and see exactly where you stand.</p>
+      <ul>
+        <li><span class="check">✓</span> Log a purchase in ten seconds, no math</li>
+        <li><span class="check">✓</span> One calm screen: money in, spent, and what's left</li>
+        <li><span class="check">✓</span> Gentle category limits that warn you before you're over</li>
+        <li><span class="check">✓</span> Bills, subscriptions, debt and savings goals, all in one place</li>
+      </ul>
+    </div>
+    <div class="feat">
+      <span class="tag">The method</span>
+      <h3>The Calm Money Method</h3>
+      <p>A short, practical guide that teaches the actual system: how to track without falling off, and how to get back on in thirty seconds when you do.</p>
+      <ul>
+        <li><span class="check">✓</span> The ten-second habit that makes tracking stick</li>
+        <li><span class="check">✓</span> The no-shame reset for when life gets loud</li>
+        <li><span class="check">✓</span> A fifteen-minute subscription audit that usually pays for itself</li>
+        <li><span class="check">✓</span> A gentle seven-day plan to get started</li>
+      </ul>
+    </div>
+    <div class="feat wide">
+      <span class="tag">Why it's different</span>
+      <h3>No Notion. No bank login. No subscription.</h3>
+      <p>Clarity Budget opens straight in your browser or on your phone. Nothing to install, no account to create, and it never connects to your bank, so your numbers stay yours. You buy it once and it's yours to keep, with no monthly fee quietly draining the money you're trying to save.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2 style="margin-top:14px">Set up once. Ten seconds a day after that.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="sn"></div><h3>Open it</h3><p>Download and open Clarity Budget on your phone, tablet or computer. It's ready in about five minutes, and the guide walks you through it.</p></div>
+      <div class="step"><div class="sn"></div><h3>Tap as you go</h3><p>Spent something? Tap it in on the spot. One amount, one category, done. The planner adds it all up for you, live.</p></div>
+      <div class="step"><div class="sn"></div><h3>Glance and breathe</h3><p>Open it whenever, see exactly where you stand, and if you fall off for a week, just start from now. Nothing to catch up on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — hidden until real testimonials are collected. Remove the hidden attribute to show. -->
+<section class="wrap" hidden>
+  <div class="sec-head" style="max-width:none">
+    <span class="eyebrow">What people say</span>
+    <h2 style="margin-top:14px">Made for the way real life actually goes.</h2>
+  </div>
+  <div class="tgrid">
+    <figure class="quote"><span class="sample">Sample</span>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <p>“I've bought and abandoned every budgeting app there is. This is the first one I've kept for more than a month, because missing a few days doesn't break it.”</p>
+      <div class="who"><span class="av">—</span><div><div class="nm">Your customer's name</div><div class="rl">A real quote goes here</div></div></div>
+    </figure>
+    <figure class="quote"><span class="sample">Sample</span>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <p>“The ten-second habit is the whole thing for me. I finally know where my money goes without spending my evening on a spreadsheet.”</p>
+      <div class="who"><span class="av">—</span><div><div class="nm">Your customer's name</div><div class="rl">A real quote goes here</div></div></div>
+    </figure>
+    <figure class="quote"><span class="sample">Sample</span>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <p>“Found three subscriptions I forgot I was paying for in the first fifteen minutes. It paid for itself before I'd really started.”</p>
+      <div class="who"><span class="av">—</span><div><div class="nm">Your customer's name</div><div class="rl">A real quote goes here</div></div></div>
+    </figure>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="tint" id="offer">
+  <div class="wrap">
+    <div class="sec-head" style="margin-inline:auto;text-align:center;max-width:34ch">
+      <span class="eyebrow">The offer</span>
+      <h2 style="margin-top:14px">Everything you need, for less than one month of an app.</h2>
+    </div>
+    <div class="offer" style="margin-top:34px">
+      <div class="top-strip">LAUNCH PRICE — SAVE 68%</div>
+      <div class="body">
+        <div class="stack">
+          <div class="it"><span class="nm"><span class="check">✓</span> Clarity Budget planner</span><span class="pr"><s>$39</s></span></div>
+          <div class="it"><span class="nm"><span class="check">✓</span> The Calm Money Method guide</span><span class="pr"><s>$15</s></span></div>
+          <div class="it"><span class="nm"><span class="check">✓</span> Bonus: printable quick-start trackers</span><span class="pr"><span class="free">Free</span></span></div>
+          <div class="it"><span class="nm"><span class="check">✓</span> Free updates, forever</span><span class="pr"><span class="free">Free</span></span></div>
+        </div>
+        <div class="price-row"><span class="was num">$59</span><span class="now num">$19</span></div>
+        <p class="price-note">One-time payment. No subscription, ever.</p>
+        <a href="#" class="btn block" id="buyBtn">Get instant access <span class="sub">→ $19</span></a>
+        <p style="text-align:center;font-size:.78rem;color:var(--ink-faint);margin-top:12px">Secure checkout · Instant download · 14-day money-back guarantee</p>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      <div class="seal">14-DAY</div>
+      <p><strong>Try it with zero risk.</strong> Use Clarity Budget and the method for two weeks. If it doesn't make your money feel calmer, email me and I'll refund you in full — and you keep the bonuses. The only way you lose is by not trying.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="wrap">
+  <div class="founder">
+    <div class="who">
+      <span class="av">F</span>
+      <div><div class="nm">Fernanda</div><div class="rl">Maker of Clarity Budget</div></div>
+    </div>
+    <p>I built Clarity Budget because I was tired of watching good, capable people — myself included — feel ashamed about money over what was really a tools problem. We were all handed systems that punish you for being human, for getting busy, for missing a day.</p>
+    <p>So I made the opposite. Something that takes seconds, forgives you completely, and shows you the truth about your money without making you feel small. If it helps one more person stop dreading their bank app, it did its job.</p>
+    <p class="sig">— Fernanda</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="tint">
+  <div class="wrap final">
+    <h2>Your calmest month with money starts today.</h2>
+    <p>Ten seconds a day, no shame, no subscription. One payment, yours forever.</p>
+    <a href="#offer" class="btn">Get Clarity Budget <span class="sub">→</span></a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="wrap">
+  <div class="sec-head" style="margin-inline:auto;text-align:center;max-width:30ch">
+    <span class="eyebrow">Questions</span>
+    <h2 style="margin-top:14px">Good to know</h2>
+  </div>
+  <div class="faq">
+    <details open><summary>Is this a one-time payment?<span class="pm">+</span></summary><p>Yes. You pay once and it's yours to keep, including free updates. There is no subscription and nothing renews.</p></details>
+    <details><summary>Do I need Notion or any app?<span class="pm">+</span></summary><p>No. Clarity Budget opens right in your browser or on your phone. Nothing to install, and no account to create.</p></details>
+    <details><summary>Does it connect to my bank?<span class="pm">+</span></summary><p>Never. It doesn't link to any bank, card or account, and it can't see or move real money. You type in your own numbers, so your information stays entirely on your own device.</p></details>
+    <details><summary>I'm not tech-savvy. Will I manage?<span class="pm">+</span></summary><p>If you can send a text message, you can use this. The included guide walks you through setup step by step, and most people are up and running in a few minutes.</p></details>
+    <details><summary>What if it's not for me?<span class="pm">+</span></summary><p>You have 14 days. If it doesn't help, email me for a full refund and keep the bonuses. No forms, no hassle.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Clarity Budget</div>
+    <p class="disc">Clarity Budget and The Calm Money Method are digital organizing tools for personal use. They never connect to a bank, card, or any financial account, and they cannot see, access, or move real money. Every figure you see is one you enter yourself, on your own device. This is not a bank, a financial institution, or financial, legal, or tax advice. For decisions specific to your situation, please speak with a qualified professional. © 2026 Clarity Budget.</p>
+  </div>
+</footer>
+
+<!-- sticky mobile buy bar -->
+<div class="buybar">
+  <a href="#offer" class="btn block" style="box-shadow:none">Get Clarity Budget →</a>
+</div>
+
+<script>
+"use strict";
+// Placeholder checkout hook — replace "#" on #buyBtn with the Lemon Squeezy checkout link.
+var buy=document.getElementById("buyBtn");
+if(buy){buy.addEventListener("click",function(e){
+  if(buy.getAttribute("href")==="#"){e.preventDefault();document.getElementById("offer").scrollIntoView({behavior:"smooth"});}
+});}
+</script>
+
+</body>
+</html>
